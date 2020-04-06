@@ -17,6 +17,7 @@ const styles = css`
 
   .footer-row {
     height: 42px;
+    background-color: #f6f6ef;
   }
 
   .header-text {
@@ -34,12 +35,18 @@ const styles = css`
     color: black;
   }
 
+  .selected {
+    color: white;
+  }
+
   .more-link {
     font-size: 14px;
     text-decoration: none;
-    margin-left: 65px;
+    margin-left: 90px;
     color: #ff6600;
+    vertical-align: -webkit-baseline-middle;
   }
+
 `;
 
 export default styles;
