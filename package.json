@@ -1,0 +1,38 @@
+{
+  "name": "pshackernews",
+  "version": "1.0.0",
+  "description": "TGA Assignment Stage 2",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "keywords": [
+    "Hacker",
+    "News",
+    "TGA",
+    "assignment",
+    "TopGun",
+    "#JustHackIt"
+  ],
+  "author": "Gagan Bhardwaj XT SAL2",
+  "license": "ISC",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "javascript-time-ago": "^2.0.7",
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^6.8.0",
+    "prettier": "^2.0.2",
+    "stylelint": "^13.3.0"
+  }
+}

@@ -1,0 +1,6 @@
+# Don't lint the following
+snapshots
+dist
+node_modules
+**/server/
+
