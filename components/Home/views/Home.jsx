@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
 import NewsFeed from '../../NewsFeed';
 import styles from '../styles/Home.style';
-import withStyles from '../../../hoc/withStyles';
+import withStyles from '../../hoc/withStyles';
 
 class Home extends Component {
   constructor(props) {
@@ -17,7 +17,6 @@ class Home extends Component {
     const url = `https://hn.algolia.com/api/v1/search?query=india&tags=story&page=0`;
     const res = await fetch(url);
     const results = await res.json();
-    debugger;
     return {
       feed: results.hits,
     };
@@ -61,7 +60,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="row">
-              <NewsFeed feed={data} />
+              <NewsFeed feed={data} className="news-wrapper" />
             </div>
             <div className="row footer-row">
               <div className="col">

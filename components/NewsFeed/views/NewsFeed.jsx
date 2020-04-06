@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../styles/NewsFeed.style';
-import withStyles from '../../../hoc/withStyles';
+import withStyles from '../../hoc/withStyles';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 
@@ -90,12 +90,9 @@ class NewsFeed extends Component {
 
   render() {
     const { feed, className } = this.props;
-    console.log(feed);
     return (
       <div className={className}>
-        <div className="feed-wrapper">
-          {feed.map((val, index, arr) => this.renderListItems(val, index))}
-        </div>
+        {feed.map((val, index) => this.renderListItems(val, index))}
       </div>
     );
   }
