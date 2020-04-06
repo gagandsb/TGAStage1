@@ -18,26 +18,44 @@ class NewsFeed extends Component {
     const timeAgo = new TimeAgo('en-US');
     const createdAt = timeAgo.format(new Date(created_at));
     return (
-      <div className="row feeds-container" key={index}>
-        <div className="comments-column">
-          <span>{num_comments}</span>
+      <div className="feeds-wrapper">
+        <div className="row feeds-container" key={index}>
+          <div className="desktop-comments">
+            <div className="comments-column">
+              <span>{num_comments}</span>
+            </div>
+            <div className="upvote-column">
+              <span>{this.getLocalStorageValue(objectID)}</span>
+              <img
+                src="/static/images/arrow-up.gif"
+                alt="up arrow"
+                className="arrow"
+                onClick={() => this.setLocalStorage(objectID)}
+              />
+            </div>
+          </div>
+          <div className="col news-title">
+            <span className="news-text">{title}</span>
+            <a href={url} className="news-subtext-url" target="_blank">
+              ({url})
+            </a>
+            <span className="news-subtext-author">by {author}</span>
+            <span className="news-subtext-time">{createdAt}</span>
+          </div>
         </div>
-        <div className="upvote-column">
-          <span>{this.getLocalStorageValue(objectID)}</span>
-          <img
-            src="/static/images/arrow-up.gif"
-            alt="up arrow"
-            className="arrow"
-            onClick={() => this.setLocalStorage(objectID)}
-          />
-        </div>
-        <div className="col">
-          <span className="news-text">{title}</span>
-          <a href={url} className="news-subtext-url" target="_blank">
-            ({url})
-          </a>
-          <span className="news-subtext-author">by {author}</span>
-          <span className="news-subtext-time">{createdAt}</span>
+        <div className="row mobile-comments" key={index}>
+          <div className="comments-column">
+            <span>{num_comments}</span>
+          </div>
+          <div className="upvote-column">
+            <span>{this.getLocalStorageValue(objectID)}</span>
+            <img
+              src="/static/images/arrow-up.gif"
+              alt="up arrow"
+              className="arrow"
+              onClick={() => this.setLocalStorage(objectID)}
+            />
+          </div>
         </div>
       </div>
     );

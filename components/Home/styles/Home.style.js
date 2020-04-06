@@ -47,6 +47,10 @@ const styles = css`
     vertical-align: -webkit-baseline-middle;
   }
 
+  .news-wrapper {
+    width: 100%;
+  }
+
 `;
 
 export default styles;

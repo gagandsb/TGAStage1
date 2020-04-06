@@ -1,14 +1,16 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 const styles = css`
   .arrow {
-      width: 10px;
-      height: 10px;
+    width: 10px;
+    height: 10px;
+    margin: 4px 4px 8px 4px;
   }
 
   .news-text {
     font-size: 13px;
     margin-right: 5px;
+    display: inline-block;
   }
 
   .news-subtext {
@@ -38,6 +40,7 @@ const styles = css`
     font-size: 11px;
     width: 25px;
     padding-top: 3px;
+    display: inline-block;
   }
 
   .comments-column {
@@ -46,18 +49,53 @@ const styles = css`
     margin-left: 30px;
     margin-right: 10px;
     padding-top: 3px;
+    display: inline-block;
   }
 
-  .row :nth-child(even){
+  .feeds-wrapper :nth-child(even) {
     background-color: #E7E7DF;
   }
-  .row :nth-child(odd){
+
+  .feeds-wrapper :nth-child(odd) {
     background-color: #f6f6ef;
   }
 
   .feeds-container {
     margin-right: 0px !important;
     margin-left: 0px !important;
+  }
+  .desktop-comments {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  .news-title {
+    padding: 2px;
+  }
+
+  .mobile-comments {
+    display: none;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  @media (max-width: 767px) {
+    .desktop-comments {
+      display: none;
+    }
+
+    .mobile-comments {
+      display: block;
+    }
+
+    .comments-column {
+      margin-left: 10px;
+    }
+
+    .news-title {
+      padding: 10px;
+    }
   }
 `;
 

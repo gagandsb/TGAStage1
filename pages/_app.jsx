@@ -1,12 +1,12 @@
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import React from 'react';
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components';
 
 const theme = {
   colors: {
     primary: '#0070f4',
   },
-}
+};
 
 class PSHackerNews extends App {
   constructor(props) {
@@ -16,11 +16,9 @@ class PSHackerNews extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-          </ThemeProvider>
-      </Container>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     );
   }
 }
