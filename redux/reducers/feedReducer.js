@@ -1,6 +1,6 @@
 import { GET_NEWS_FEED, GET_NEWS_FEED_COMPLETE } from '../actions/feedActions';
 
-const feedReducer = (state = { feedItems: [] }, action) => {
+const FeedReducer = (state = { feedItems: [] }, action) => {
   switch (action.type) {
     case GET_NEWS_FEED:
       return { ...state, feedItems: state.feedItems };
@@ -11,4 +11,4 @@ const feedReducer = (state = { feedItems: [] }, action) => {
   }
 };
 
-export default feedReducer;
+export default FeedReducer;

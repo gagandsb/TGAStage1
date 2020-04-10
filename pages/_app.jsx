@@ -2,8 +2,10 @@ import App from 'next/app';
 import React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from "next-redux-wrapper";
+import withReduxSaga from 'next-redux-saga';
 import { ThemeProvider } from 'styled-components';
 import store from '../redux/store';
+import configureStore from '../redux/configureStore';
 
 const theme = {
   colors: {
@@ -28,7 +30,5 @@ class PSHackerNews extends App {
   }
 }
 
-const makeStore = () => store;
+export default withRedux(configureStore)(withReduxSaga(PSHackerNews));
 
-//withRedux wrapper that passes the store to the PSHackerNews Component
-export default withRedux(makeStore)(PSHackerNews);
