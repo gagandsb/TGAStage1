@@ -1,0 +1,48 @@
+
+module.exports = {
+  verbose: true,
+  rootDir: '../',
+  roots: ['<rootDir>'],
+  moduleFileExtensions: ['js', 'jsx'],
+  moduleDirectories: ['node_modules'],
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
+  testMatch: ['**/__tests__/*-test.+(js|jsx)', '**/*.test.+(js|jsx)'],
+  globals: {
+    'babel-jest': {
+      extends: './babel.config.js',
+    },
+  },
+  setupFiles: ['<rootDir>/config/jest.setup.js'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    '**/*.js',
+    '**/*.jsx',
+    '!**/*.style.js',
+    '!**/*.style.native.js',
+    '!**/*.styles.js',
+    '!**/*.styles.native.js',
+    '!**/*.constants.js',
+    '!**/*.config.js',
+    '!**/config.js',
+    '!**/core/styles/**',
+    '!**/*.actions.js',
+    '!**/*.container.js',
+    '!**/*.container.jsx',
+    '!**/*.query.js',
+    '!**/__mocks__/**',
+  ],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '/pages/',
+    '/*.app.js',
+    '/*.app.jsx',
+    'index.js',
+    'prettify.js',
+    'sorter.js',
+    'block-navigation.js',
+  ],
+  coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+};

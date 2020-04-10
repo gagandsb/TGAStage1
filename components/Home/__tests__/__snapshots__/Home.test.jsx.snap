@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component should render correctly 1`] = `
+<div
+  className=""
+>
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="hacker-news"
+    >
+      <div
+        className="row header-row"
+      >
+        <div
+          className="col"
+        >
+          <a
+            className="header-text"
+            href="#"
+          >
+            Hacker News
+          </a>
+          <a
+            className="header-subtext selected"
+            href="#"
+            onClick={[Function]}
+          >
+            <span>
+              top
+            </span>
+          </a>
+          <span>
+             | 
+          </span>
+          <a
+            className="header-subtext "
+            href="#"
+            onClick={[Function]}
+          >
+            <span>
+              new
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <Styled(NewsFeed)
+          className="news-wrapper"
+          feed={Array []}
+        />
+      </div>
+      <div
+        className="row footer-row"
+      >
+        <div
+          className="col"
+        >
+          <a
+            className="more-link"
+            href="#"
+            onClick={[Function]}
+          >
+            More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
