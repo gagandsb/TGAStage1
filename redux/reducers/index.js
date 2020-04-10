@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import FeedReducer from './feedReducer';
+import FeedReducer from './feed.reducer';
 
 
 import { FEED_REDUCER_KEY } from './reducer.constants';

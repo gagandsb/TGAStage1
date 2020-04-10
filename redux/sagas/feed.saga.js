@@ -1,8 +1,11 @@
-import { GET_NEWS_FEED, GET_NEWS_FEED_COMPLETE } from '../actions/feedActions';
-import { takeLatest } from 'redux-saga/effects';
+import { GET_NEWS_FEED, getNewsFeedComplete } from '../actions/feed.actions';
+import { takeLatest, call, put } from 'redux-saga/effects';
+import { getNewsFeedService } from '../../services/abstractors/feed.abstractor';
 
-export function* getNewsFeed() {
-  console.log('get News Saga');
+export function* getNewsFeed(data) {
+  const response = yield call(getNewsFeedService, data)
+  yield put(getNewsFeedComplete(response));
+  console.log(response);
 }
 
 export function* FeedSaga() {

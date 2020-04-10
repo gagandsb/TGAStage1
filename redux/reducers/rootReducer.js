@@ -1,4 +1,4 @@
-import FeedReducer from './feedReducer';
+import FeedReducer from './feed.reducer';
 import {combineReducers} from 'redux';
 
 const rootReducer = combineReducers({
