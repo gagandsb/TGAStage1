@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import fetch from 'isomorphic-unfetch';
 import NewsFeed from '../../NewsFeed';
 import styles from '../styles/Home.style';
 import withStyles from '../../hoc/withStyles';
@@ -12,8 +11,8 @@ const URL_MAPPING = {
 
 const FILTERS = {
   TOP: 'top',
-  NEW: 'new'
-}
+  NEW: 'new',
+};
 
 class Home extends Component {
   constructor(props) {
@@ -21,16 +20,7 @@ class Home extends Component {
     this.state = {
       pagesFeed: [],
       page: 0,
-      filter: FILTERS.TOP
-    };
-  }
-
-  static async getInitialProps() {
-    const url = `${URL_MAPPING.TOP}0`;
-    const res = await fetch(url);
-    const results = await res.json();
-    return {
-      feed: results.hits,
+      filter: FILTERS.TOP,
     };
   }
 
@@ -41,13 +31,16 @@ class Home extends Component {
       .then((res) => {
         this.setState({ pagesFeed: res.hits });
       });
+      // const { getNewsFeed } = this.props;
+      // getNewsFeed({page, url});
   };
 
   renderNextPage = () => {
     const { page } = this.state;
     const newPage = page + 1;
     const { filter } = this.state;
-    const filterURL = filter === FILTERS.TOP ? URL_MAPPING.TOP : URL_MAPPING.NEW;
+    const filterURL =
+      filter === FILTERS.TOP ? URL_MAPPING.TOP : URL_MAPPING.NEW;
     this.setState({ page: newPage });
     this.fetchNewsFeed(newPage, filterURL);
     return false;
@@ -81,7 +74,9 @@ class Home extends Component {
                   Hacker News
                 </a>
                 <a
-                  className={`header-subtext ${filter === FILTERS.TOP ? 'selected' : ''}`}
+                  className={`header-subtext ${
+                    filter === FILTERS.TOP ? 'selected' : ''
+                  }`}
                   href="#"
                   onClick={this.renderTopNewsFeed}
                 >
@@ -89,7 +84,9 @@ class Home extends Component {
                 </a>
                 <span> | </span>
                 <a
-                 className={`header-subtext ${filter === FILTERS.NEW ? 'selected' : ''}`}
+                  className={`header-subtext ${
+                    filter === FILTERS.NEW ? 'selected' : ''
+                  }`}
                   href="#"
                   onClick={this.renderNewNewsFeed}
                 >

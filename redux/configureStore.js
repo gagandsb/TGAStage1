@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import globalSagas from './sagas';
-import globalReducers from './reducers';
+import rootSaga from './sagas';
+import rootReducer from './reducers/rootReducer';
 
 const configureStore = (preloadedState) => {
   /**
@@ -11,13 +11,8 @@ const configureStore = (preloadedState) => {
 
   const sagaMiddleware = createSagaMiddleware();
 
-  const middlewares = [sagaMiddleware];
-
-  const enhancers = [applyMiddleware(...middlewares)];
-
   // Choose compose method depending upon environment and platform
-  const composeEnhancers =
-    typeof window === 'object' ? composeWithDevTools : compose;
+  const composeEnhancers = typeof window === 'object' ? composeWithDevTools : compose;
 
   /**
    * Since Next.js does server-side rendering, you are REQUIRED to pass
@@ -25,16 +20,15 @@ const configureStore = (preloadedState) => {
    */
 
   const store = createStore(
-    globalReducers,
+    rootReducer,
     preloadedState,
-    composeEnhancers(...enhancers)
+    composeEnhancers(applyMiddleware(sagaMiddleware))
   );
-
   /**
    * next-redux-saga depends on `sagaTask` being attached to the store.
    * It is used to await the rootSaga task before sending results to the client.
    */
-  store.sagaTask = sagaMiddleware.run(globalSagas);
+  store.sagaTask = sagaMiddleware.run(rootSaga);
 
   return store;
 };

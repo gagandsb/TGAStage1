@@ -14,8 +14,14 @@ const theme = {
 };
 
 class PSHackerNews extends App {
-  constructor(props) {
-    super(props);
+  static async getInitialProps({Component, ctx}) {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return {pageProps}
   }
 
   render() {

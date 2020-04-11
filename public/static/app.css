@@ -5,3 +5,10 @@ body {
   margin: 0 auto !important;
   width: 80%;
 }
+
+
+@media (max-width: 767px) {
+  body {
+    width: 98%;
+  }
+}

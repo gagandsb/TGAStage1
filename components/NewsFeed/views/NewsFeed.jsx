@@ -18,8 +18,8 @@ class NewsFeed extends Component {
     const timeAgo = new TimeAgo('en-US');
     const createdAt = timeAgo.format(new Date(created_at));
     return (
-      <div className="feeds-wrapper">
-        <div className="row feeds-container" key={index}>
+      <div className="feeds-wrapper" key={index}>
+        <div className="row feeds-container">
           <div className="desktop-comments">
             <div className="comments-column">
               <span>{num_comments}</span>
