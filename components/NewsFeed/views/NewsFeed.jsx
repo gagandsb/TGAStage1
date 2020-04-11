@@ -3,6 +3,7 @@ import styles from '../styles/NewsFeed.style';
 import withStyles from '../../hoc/withStyles';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
+import { setLocalStorageForFeedUpVotes, getLocalStorageFeedValue } from '../../../utils/feed.util';
 
 class NewsFeed extends Component {
   constructor(props) {
@@ -12,6 +13,12 @@ class NewsFeed extends Component {
     };
   }
 
+  /**
+   * @method renderListItems
+   * @description render news feed item
+   * @param {object} item - every news feed item object from the API
+   * @param {number} index - index of every news feed
+   */
   renderListItems = (item, index) => {
     const { title, num_comments, objectID, url, author, created_at } = item;
     TimeAgo.addLocale(en);
@@ -25,12 +32,12 @@ class NewsFeed extends Component {
               <span>{num_comments}</span>
             </div>
             <div className="upvote-column">
-              <span>{this.getLocalStorageValue(objectID)}</span>
+              <span>{getLocalStorageFeedValue(objectID)}</span>
               <img
                 src="/static/images/arrow-up.gif"
                 alt="up arrow"
                 className="arrow"
-                onClick={() => this.setLocalStorage(objectID)}
+                onClick={() => this.setFeedUpVotes(objectID)}
               />
             </div>
           </div>
@@ -48,12 +55,12 @@ class NewsFeed extends Component {
             <span>{num_comments}</span>
           </div>
           <div className="upvote-column">
-            <span>{this.getLocalStorageValue(objectID)}</span>
+            <span>{getLocalStorageFeedValue(objectID)}</span>
             <img
               src="/static/images/arrow-up.gif"
               alt="up arrow"
               className="arrow"
-              onClick={() => this.setLocalStorage(objectID)}
+              onClick={() => this.setFeedUpVotes(objectID)}
             />
           </div>
         </div>
@@ -61,50 +68,16 @@ class NewsFeed extends Component {
     );
   };
 
-  setLocalStorage = (key) => {
-    const items = this.getAllNewsData('NewsUpVotes');
-    let results = [];
-    let item = {};
-    let val = 1;
-    let index = -1;
-    if (items && items.length) {
-      results = items;
-      const object = results.find((i) => i.name === key);
-      index = results.findIndex((i) => i.name === key);
-      val = object ? object.value + 1 : 1;
-    }
-    item.name = key;
-    item.value = val;
-    if (index !== -1) {
-      results[index] = item;
-    } else {
-      results.push(item);
-    }
-    localStorage.setItem('NewsUpVotes', JSON.stringify(results));
+  /**
+   * @method setFeedUpVotes
+   * @description set object id key to increment up votes count on the localStorage
+   * @param {string} key - unique object id of each news feed
+   */
+  setFeedUpVotes = (key) => {
+    setLocalStorageForFeedUpVotes(key);
     const { upVotes } = this.state;
     this.setState({ upVotes: upVotes + 1 });
   };
-
-  getLocalStorageValue = (key) => {
-    const results = this.getAllNewsData();
-    if (results && results.length) {
-      const item = results.find((i) => i.name === key);
-      return item && item.name ? item.value : 0;
-    }
-    return 0;
-  };
-
-  getAllNewsData = () => {
-    if (this.isClient()) {
-      const items = window.localStorage.getItem('NewsUpVotes');
-      return JSON.parse(items);
-    }
-    return [];
-  };
-
-  isClient() {
-    return typeof window !== 'undefined';
-  }
 
   render() {
     const { feed, className } = this.props;

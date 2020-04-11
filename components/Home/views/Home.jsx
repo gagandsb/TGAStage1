@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import NewsFeed from '../../NewsFeed';
 import styles from '../styles/Home.style';
 import withStyles from '../../hoc/withStyles';
-
-const URL_MAPPING = {
-  TOP: 'https://hn.algolia.com/api/v1/search?tags=front_page&page=',
-  NEW:
-    'https://hn.algolia.com/api/v1/search_by_date?query=india&tags=story&page=',
-};
-
-const FILTERS = {
-  TOP: 'top',
-  NEW: 'new',
-};
+import endpoints from '../../../services/endpoints';
+import constants from '../../../services/constants';
 
 class Home extends Component {
   constructor(props) {
@@ -20,43 +11,59 @@ class Home extends Component {
     this.state = {
       pagesFeed: [],
       page: 0,
-      filter: FILTERS.TOP,
+      filter: constants.TOP,
     };
   }
 
-  fetchNewsFeed = (page = 0, url = URL_MAPPING.TOP) => {
+  /**
+   * @method fetchNewsFeed
+   * @description fetches the news feed from the service
+   * @param {page} page number index from 0
+   * @param {url} feed url, default is set to top news feed
+   */
+  fetchNewsFeed = (page = 0, url = endpoints.TOP) => {
     const fetchUrl = `${url}${page}`;
     fetch(fetchUrl)
       .then((res) => res.json())
       .then((res) => {
         this.setState({ pagesFeed: res.hits });
       });
-      // const { getNewsFeed } = this.props;
-      // getNewsFeed({page, url});
   };
 
+  /**
+   * @method renderNextPage
+   * @description fetch next page click on more option
+   */
   renderNextPage = () => {
     const { page } = this.state;
     const newPage = page + 1;
     const { filter } = this.state;
     const filterURL =
-      filter === FILTERS.TOP ? URL_MAPPING.TOP : URL_MAPPING.NEW;
+      filter === constants.TOP ? endpoints.TOP : endpoints.NEW;
     this.setState({ page: newPage });
     this.fetchNewsFeed(newPage, filterURL);
     return false;
   };
 
+  /**
+   * @method renderTopNewsFeed
+   * @description fetches the top news feed from the api
+   */
   renderTopNewsFeed = () => {
     const { page } = this.state;
-    this.setState({ page: 0, filter: FILTERS.TOP });
-    this.fetchNewsFeed(0, URL_MAPPING.TOP);
+    this.setState({ page: 0, filter: constants.TOP });
+    this.fetchNewsFeed(0, endpoints.TOP);
     return false;
   };
 
+  /**
+   * @method renderNewNewsFeed
+   * @description fetch the new news feed from the api
+   */
   renderNewNewsFeed = () => {
     const { page } = this.state;
-    this.setState({ page: 0, filter: FILTERS.NEW });
-    this.fetchNewsFeed(0, URL_MAPPING.NEW);
+    this.setState({ page: 0, filter: constants.NEW });
+    this.fetchNewsFeed(0, endpoints.NEW);
     return false;
   };
 
@@ -75,7 +82,7 @@ class Home extends Component {
                 </a>
                 <a
                   className={`header-subtext ${
-                    filter === FILTERS.TOP ? 'selected' : ''
+                    filter === constants.TOP ? 'selected' : ''
                   }`}
                   href="#"
                   onClick={this.renderTopNewsFeed}
@@ -85,7 +92,7 @@ class Home extends Component {
                 <span> | </span>
                 <a
                   className={`header-subtext ${
-                    filter === FILTERS.NEW ? 'selected' : ''
+                    filter === constants.NEW ? 'selected' : ''
                   }`}
                   href="#"
                   onClick={this.renderNewNewsFeed}

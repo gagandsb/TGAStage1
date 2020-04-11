@@ -6,10 +6,10 @@ exports[`News Feed component should render correctly 1`] = `
 >
   <div
     className="feeds-wrapper"
+    key="0"
   >
     <div
       className="row feeds-container"
-      key="0"
     >
       <div
         className="desktop-comments"
@@ -61,7 +61,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          2 hours ago
+          a day ago
         </span>
       </div>
     </div>
@@ -93,10 +93,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="1"
   >
     <div
       className="row feeds-container"
-      key="1"
     >
       <div
         className="desktop-comments"
@@ -148,7 +148,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          4 hours ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -180,10 +180,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="2"
   >
     <div
       className="row feeds-container"
-      key="2"
     >
       <div
         className="desktop-comments"
@@ -235,7 +235,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          13 hours ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -267,10 +267,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="3"
   >
     <div
       className="row feeds-container"
-      key="3"
     >
       <div
         className="desktop-comments"
@@ -322,7 +322,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          14 hours ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -354,10 +354,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="4"
   >
     <div
       className="row feeds-container"
-      key="4"
     >
       <div
         className="desktop-comments"
@@ -409,7 +409,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          20 hours ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -441,10 +441,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="5"
   >
     <div
       className="row feeds-container"
-      key="5"
     >
       <div
         className="desktop-comments"
@@ -495,7 +495,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          a day ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -527,10 +527,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="6"
   >
     <div
       className="row feeds-container"
-      key="6"
     >
       <div
         className="desktop-comments"
@@ -582,7 +582,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          a day ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -614,10 +614,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="7"
   >
     <div
       className="row feeds-container"
-      key="7"
     >
       <div
         className="desktop-comments"
@@ -669,7 +669,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          a day ago
+          2 days ago
         </span>
       </div>
     </div>
@@ -701,10 +701,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="8"
   >
     <div
       className="row feeds-container"
-      key="8"
     >
       <div
         className="desktop-comments"
@@ -756,7 +756,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          a day ago
+          3 days ago
         </span>
       </div>
     </div>
@@ -788,10 +788,10 @@ exports[`News Feed component should render correctly 1`] = `
   </div>
   <div
     className="feeds-wrapper"
+    key="9"
   >
     <div
       className="row feeds-container"
-      key="9"
     >
       <div
         className="desktop-comments"
@@ -843,7 +843,7 @@ exports[`News Feed component should render correctly 1`] = `
         <span
           className="news-subtext-time"
         >
-          a day ago
+          3 days ago
         </span>
       </div>
     </div>
