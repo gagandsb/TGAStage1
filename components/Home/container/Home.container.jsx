@@ -24,7 +24,7 @@ export const mapStateToProps = (state) => {
 };
 
 export const mapDispatchToProps = (dispatch) => ({
-  getNewsFeed: (data) => {
+  getNewsFeedDispatch: (data) => {
     dispatch(getNewsFeed(data));
   },
 });

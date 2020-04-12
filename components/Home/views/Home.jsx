@@ -28,6 +28,9 @@ class Home extends Component {
       .then((res) => {
         this.setState({ pagesFeed: res.hits });
       });
+      // TODO: Add logic to leverage sagas for action/store
+      // const { getNewsFeedDispatch } = this.props;
+      // getNewsFeedDispatch(url);
   };
 
   /**
